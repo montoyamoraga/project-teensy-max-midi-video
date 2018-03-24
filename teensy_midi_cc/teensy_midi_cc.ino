@@ -25,34 +25,37 @@ int ledPin = 10;
 bool isPeople = false;
 int yesPeople = 127;
 int noPeople = 0;
-int onLight = 70;
-int offLight = 4;
-int currentLight = offLight;
+int onLight = 700;
+int offLight = 50;
+int currentLight = onLight;
 int deltaLight = 1;
 int thresholdValue = 400;
-int measures[] = {0, 0, 0};
-int measuresSize = 3;
 long measure;
 long sensorValue;
+int numberLoop = 10;
+int currentLoop = 0;
 
 void setup() {
-  Serial.begin(115200);
+  //  Serial.begin(115200);
   analogWriteFrequency(10, 5000);
+  analogWriteResolution(12);
   pinMode(sensorPin, INPUT);
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
 
-  //detect people
-  detectPeople();
+  if (currentLoop % numberLoop == 0) {
+    //detect people
+    detectPeople();
 
-  //decide the value to be sent
-  if (isPeople) {
-    sendValue = yesPeople;
-  }
-  else {
-    sendValue = noPeople;
+    //decide the value to be sent
+    if (isPeople) {
+      sendValue = yesPeople;
+    }
+    else {
+      sendValue = noPeople;
+    }
   }
 
   //send the value over midi cc
@@ -61,35 +64,16 @@ void loop() {
   //control the led lights
   ledControl();
 
+  currentLoop++;
+  currentLoop = currentLoop % numberLoop;
+
 }
 
 void detectPeople() {
 
-  //read from the sensor
-  //  for (int i = 0; i < measuresSize; i++) {
-  //    //read from the sensor
-  //    measure = pulseIn(sensorPin, HIGH);
-  //    //scale and save to the array
-  //    measures[i] = measure / 58;
-  //    //wait for stabilization
-  //    //    delay(delayTime);
-  //  }
-
+  //  sensorValue = pulseIn(sensorPin, HIGH);
   sensorValue = pulseIn(sensorPin, HIGH);
-  Serial.println(sensorValue);
 
-
-  //average measurements
-  //  int average = 0;
-  //  for (int i = 0; i < measuresSize; i++) {
-  //    average = average + measures[i];
-  //  }
-  //  average = average / measuresSize;
-
-  //Serial.println(average);
-
-  // check average against threshold
-  //  if (average < thresholdValue) {
   if (sensorValue < (long)thresholdValue) {
     isPeople = true;
   } else {
@@ -106,10 +90,12 @@ void ledControl() {
 
   //turn up if there is nobody, turn down if there is somebody
   if (isPeople) {
-    currentLight = currentLight - deltaLight;
+    //    currentLight = currentLight - deltaLight;
+    currentLight = currentLight * 0.90;
   }
   else {
-    currentLight = currentLight + deltaLight;
+    //    currentLight = currentLight + deltaLight;
+    currentLight = currentLight * 1.10;
   }
 
   //constrain to the maximum and minimum values
