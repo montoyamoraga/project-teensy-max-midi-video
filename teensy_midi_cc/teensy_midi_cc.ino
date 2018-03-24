@@ -15,7 +15,7 @@
 
 //variables for midi cc communications
 // sendControl needs to CHANGE for each teensy, 1  or 2 or 3
-int sendControl = 1;
+int sendControl = 2;
 int sendChannel = 1;
 int sendValue = 0;
 
