@@ -20,9 +20,8 @@
 * Hit the Esc key to make the windows go fullscreen. To exit fullscreen, hit Esc again.
 * Don't close the laptop lid in order to provide proper ventilation.
 
-### Replacing the assets
+### Replacing the video and picture assets
 
-* We already included the files you sent us.
 * To replace them, put them inside the folder project-teensy-max-midi-video.
 * Rename them following our convention.
 * Pictures are  picture1.jpg, picture2.jpg, picture3.jpg.
