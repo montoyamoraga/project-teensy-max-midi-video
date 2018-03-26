@@ -6,7 +6,7 @@
 
 * Turn on the computer.
 * Connect the computer to the three monitors.
-* Connect the lights to the boxes.
+* Connect the lights to the control boxes.
 * Connect the USB Hub to the computer.
 * Connect the three boxes to the USB Hub, the order does not matter.
 
