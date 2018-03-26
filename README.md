@@ -7,7 +7,7 @@
 * Turn on the computer.
 * Connect the computer to the three monitors.
 * Connect the light fixtures to the control boxes via the XLR connector.
-* Connect the USB Hub to the computer.
+* Connect the USB Hub to the computer and to power.
 * Connect the three control boxes to the USB Hub, the order does not matter.
 
 ### Running the software
