@@ -15,9 +15,9 @@
 * Open the folder project-teensy-max-midi-video, it lives on the desktop.
 * Double click the file video-player.maxpat.
 * Max opens and three windows appear, named screen1, screen2, screen3.
-* Drag these windows to each corresponding screen.
+* Click and drag these windows to each corresponding screen.
 * Go back to the computer screen and click inside the Max window.
-* Hit the key Esc to make the windows go fullscreen.
+* Hit the Esc key to make the windows go fullscreen. To exit fullscreen, hit Esc again.
 * Don't close the computer.
 
 ### Replacing the assets
