@@ -4,10 +4,10 @@
 
 ### Physical setup
 
-* Turn on the computer.
+* Turn on the computer and connect to its power supply.
 * Connect the computer to the three monitors.
 * Connect the light fixtures to the control boxes via the XLR connector.
-* Connect the USB Hub to the computer and to power.
+* Connect the USB Hub to the computer and to its power supply.
 * Connect the three control boxes to the USB Hub, the order does not matter.
 
 ### Running the software
