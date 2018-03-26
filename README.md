@@ -18,7 +18,7 @@
 * Click and drag these windows to each corresponding screen.
 * Go back to the computer screen and click inside the Max window.
 * Hit the Esc key to make the windows go fullscreen. To exit fullscreen, hit Esc again.
-* Don't close the laptop lid.
+* Don't close the laptop lid in order to provide proper ventilation.
 
 ### Replacing the assets
 
