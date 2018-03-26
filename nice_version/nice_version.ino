@@ -19,7 +19,7 @@ const int analogOutPin = 10;
 
 //variables for midi cc communications
 // sendControl needs to CHANGE for each teensy, 1  or 2 or 3
-int sendControl = 2;
+int sendControl = 1;
 int sendChannel = 1;
 int sendValue = 0;
 int yesPeople = 127;
@@ -29,12 +29,12 @@ int noPeople = 0;
 int sensorValue;
 
 //variables for lights
-int onLight = 60;
-int offLight = 4;
+int onLight = 20;
+int offLight = 1;
 int currentLight = onLight;
-int deltaLight = 1;
+int deltaLight = 3;
 int thresholdValue = 400;
-float percentageLight = 0.4;
+float percentageLight = 0.6;
 
 // value to be output
 int outputValue = 0;
@@ -55,34 +55,37 @@ void loop() {
   // map it to the range of the analog out
   outputValue = map(sensorValue, 0, 1023, 0, 255);
 
-//  // change the analog out value:
-//  analogWrite(analogOutPin, outputValue);
+  //  // change the analog out value:
+  //  analogWrite(analogOutPin, outputValue);
+  analogWrite(analogOutPin, currentLight);
 
   // print the results to the serial monitor
-  Serial.print("sensor = ");
+  Serial.print("sensorValue = ");
   Serial.print(sensorValue);
   Serial.print("\t output = ");
   Serial.println(outputValue);
 
   // wait 2 milliseconds before the next loop for the analog-to-digital
   // converter to settle after the last reading:
-  delay(0.5);
+  delay(1);
 
   if (sensorValue < thresholdValue ) {
-    currentLight = (int)(currentLight * (1-percentageLight));
+    //    currentLight = (int)(currentLight * (1 - percentageLight));
+    currentLight = currentLight - deltaLight;
     sendValue = yesPeople;
   } else {
-    currentLight = (int)(currentLight * (1+percentageLight));
+    //    currentLight = (int)(currentLight * (1 + percentageLight));
     sendValue = noPeople;
+    currentLight = currentLight + deltaLight;
   }
 
   //constrain to minimum and maximum values
   currentLight = constrain(currentLight, offLight, onLight);
 
-   // change the analog out value:
-  analogWrite(analogOutPin, currentLight);
+  // change the analog out value:
+  //  analogWrite(analogOutPin, currentLight);
 
   //send midi value to max patch
   usbMIDI.sendControlChange(sendControl, sendValue, sendChannel);
-  
+
 }
