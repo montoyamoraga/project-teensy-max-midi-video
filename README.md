@@ -22,8 +22,8 @@
 
 ### Replacing the video and picture assets
 
-* To replace them, put them inside the folder project-teensy-max-midi-video.
-* Rename them following our convention.
-* Pictures are  picture1.jpg, picture2.jpg, picture3.jpg.
-* Movies are movie1.mp4, movie2.mp4, movie3.mp4.
+* To replace the videos or pictures, put them inside the folder project-teensy-max-midi-video.
+* Rename them following our convention:
+  * Pictures are picture1.jpg, picture2.jpg, picture3.jpg.
+  * Movies are movie1.mp4, movie2.mp4, movie3.mp4.
 * After you finish replacing the files, redo the steps on "Running the software".
