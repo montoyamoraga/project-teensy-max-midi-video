@@ -1,4 +1,4 @@
-# project-teensy-max-midi-video
+# teensy-max-midi-video
 
 ## Instructions for setting up from scratch.
 
